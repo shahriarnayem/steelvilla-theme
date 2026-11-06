@@ -200,11 +200,27 @@ class SteelVilla_Theme_Updater {
     public function rename_github_zip_folder($source, $remote_source, $upgrader, $hook_extra = null) {
         global $wp_filesystem;
 
+        if (is_wp_error($source)) {
+            return $source;
+        }
+
         if (isset($hook_extra['theme']) && ($hook_extra['theme'] === $this->theme_slug || $hook_extra['theme'] === 'steelvilla-theme')) {
-            $correct_destination = trailingslashit($remote_source) . $this->theme_slug;
-            if ($source !== $correct_destination) {
-                $wp_filesystem->move($source, $correct_destination);
-                return $correct_destination;
+            $dest_slug = !empty($hook_extra['theme']) ? $hook_extra['theme'] : $this->theme_slug;
+            $correct_destination = trailingslashit($remote_source) . trailingslashit($dest_slug);
+
+            // If source is already named correctly (ignoring trailing slashes), do nothing!
+            if (untrailingslashit($source) === untrailingslashit($correct_destination)) {
+                return trailingslashit($source);
+            }
+
+            // Only rename if it's actually a different folder (e.g. from GitHub zipball with SHA)
+            if ($wp_filesystem->is_dir($source)) {
+                if ($wp_filesystem->exists($correct_destination)) {
+                    $wp_filesystem->delete($correct_destination, true);
+                }
+                if ($wp_filesystem->move($source, $correct_destination, true)) {
+                    return trailingslashit($correct_destination);
+                }
             }
         }
 
