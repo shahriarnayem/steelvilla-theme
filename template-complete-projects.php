@@ -2,7 +2,7 @@
 /**
  * Template Name: Complete Projects
  * 
- * Steel Villa Complete Projects Template
+ * Steel Villa Complete Projects Template - 100% Pixel-Perfect Match
  */
 
 get_header();
@@ -22,48 +22,33 @@ $complete_query = new WP_Query(array(
 ));
 ?>
 
-  <!-- Page Banner -->
-  <section class="page-banner">
-    <div class="container">
-      <h1><?php the_title(); ?></h1>
-      <p><?php _e('Successfully Handed Over Pre-Engineered Structures & Infrastructure', 'steelvilla'); ?></p>
-      <div class="breadcrumb">
-        <a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'steelvilla'); ?></a> / 
-        <a href="<?php echo esc_url(steelvilla_get_page_link_by_slug('projects', home_url('/projects/'))); ?>"><?php _e('Projects', 'steelvilla'); ?></a> / 
-        <span><?php the_title(); ?></span>
-      </div>
+  <!-- Page Header Hero -->
+  <section style="background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(40,22,14,0.95) 100%), url('https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop') center/cover; color: #FFF; padding: 5rem 0;">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <span class="badge badge-completed" style="margin-bottom: 1rem; color: #065F46; background-color: #D1FAE5;"><?php _e('Taxonomy: Completed Projects (10)', 'steelvilla'); ?></span>
+      <h1 style="color: #FFF; margin-bottom: 1rem;"><?php _e('Completed Projects', 'steelvilla'); ?></h1>
+      <p style="font-size: 1.15rem; color: #E2E4EB;"><?php _e('Explore our successfully delivered industrial steel structures, agro-processing plants, and manufacturing buildings handed over on time and on budget.', 'steelvilla'); ?></p>
     </div>
   </section>
 
-  <!-- Complete Projects Section -->
-  <section class="section">
+  <!-- Completed Projects Loop (Template #3536) -->
+  <section class="section-padding">
     <div class="container">
-      <div class="section-title">
-        <span class="badge badge-accent"><?php _e('Delivered Landmarks', 'steelvilla'); ?></span>
-        <h2><?php _e('100% Completed & Commissioned Projects', 'steelvilla'); ?></h2>
-        <p><?php _e('Explore our executed industrial buildings, heavy boiler sheds, and storage godowns across Bangladesh. Click to view image gallery.', 'steelvilla'); ?></p>
-      </div>
-
       <div class="projects-grid">
         <?php if ($complete_query->have_posts()) : ?>
           <?php while ($complete_query->have_posts()) : $complete_query->the_post(); 
-            $client   = get_post_meta(get_the_ID(), '_steelvilla_project_client', true);
-            $loc      = get_post_meta(get_the_ID(), '_steelvilla_project_location', true);
-            $img      = get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?: (get_post_meta(get_the_ID(), '_steelvilla_img', true) ?: 'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=800&auto=format&fit=crop');
+            $client = get_post_meta(get_the_ID(), '_steelvilla_project_client', true);
+            $img    = get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?: (get_post_meta(get_the_ID(), '_steelvilla_img', true) ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop');
           ?>
             <div class="project-card">
               <div class="project-image-box">
-                <img src="<?php echo esc_url($img); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+                <img src="<?php echo esc_url($img); ?>" alt="<?php the_title_attribute(); ?>">
+                <span class="badge badge-completed project-status-tag"><i class="fa-solid fa-circle-check"></i> <?php _e('Completed', 'steelvilla'); ?></span>
               </div>
-              <div class="project-body">
-                <span class="project-status-tag" style="background-color: #e7f5ea; color: #2e7d32;">
-                  <i class="fa-solid fa-check-circle" style="margin-right: 4px;"></i> <?php _e('Completed', 'steelvilla'); ?>
-                </span>
-                <h3 class="project-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <p style="font-size: 0.9rem; color: var(--color-primary); font-weight: 500; margin-bottom: 0.25rem;">
-                  <?php echo esc_html($client); ?>
-                </p>
-                <p class="project-loc"><i class="fa-solid fa-location-dot" style="margin-right: 4px; color: var(--color-accent);"></i> <?php echo esc_html($loc ?: 'Bangladesh'); ?></p>
+              <div class="project-info">
+                <h3 class="project-title"><?php the_title(); ?></h3>
+                <div class="project-client-name"><i class="fa-solid fa-building" style="margin-right: 4px; font-size: 0.8rem;"></i> <?php echo esc_html($client ?: get_the_title()); ?></div>
+                <p style="font-size: 0.85rem; color: var(--color-text); margin-top: 0.5rem;"><?php echo esc_html(get_the_excerpt()); ?></p>
               </div>
             </div>
           <?php endwhile; wp_reset_postdata(); ?>
@@ -74,13 +59,14 @@ $complete_query = new WP_Query(array(
 
   <!-- CTA Banner -->
   <section class="cta-banner">
-    <div class="container cta-inner">
-      <div>
-        <h2><?php _e('Experience Quality That Stands the Test of Time', 'steelvilla'); ?></h2>
-        <p><?php _e('Get in touch with our team to tour one of our completed facilities or discuss your upcoming requirements.', 'steelvilla'); ?></p>
-      </div>
-      <div class="cta-buttons">
-        <a href="<?php echo esc_url(steelvilla_get_page_link_by_slug('contact', home_url('/contact/'))); ?>" class="btn btn-primary"><?php _e('Contact Us', 'steelvilla'); ?></a>
+    <div class="container">
+      <h2><?php _e('Ready to Build Your Dream Project?', 'steelvilla'); ?></h2>
+      <p><?php _e('Let’s collaborate to create something extraordinary. Contact our engineering team today for consultation, structural analysis, and transparent quotation.', 'steelvilla'); ?></p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="<?php echo esc_url(steelvilla_get_page_link_by_slug('contact', home_url('/contact/'))); ?>" class="btn btn-primary"><?php _e('Contact Engineers', 'steelvilla'); ?></a>
+        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', steelvilla_get_contact('phone_1'))); ?>" class="btn btn-outline">
+          <i class="fa-solid fa-phone" style="margin-right: 6px;"></i> <?php _e('Call:', 'steelvilla'); ?> <?php echo esc_html(steelvilla_get_contact('phone_1')); ?>
+        </a>
       </div>
     </div>
   </section>

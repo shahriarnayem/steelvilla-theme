@@ -1,3 +1,20 @@
+/*
+Theme Name: Steel Villa
+Theme URI: https://github.com/shahriarnayem/steelvilla-theme
+Author: Steel Villa LTD
+Author URI: https://steelvilla.com.bd/
+Description: Premier Pre-Engineered Steel Building (PEB) & Industrial Civil Construction WordPress Theme for Steel Villa LTD. Same-to-same design with Custom Post Types (hero, service, project, product, project-review), custom page templates, dedicated Contact & Theme options pages, template meta boxes, and GitHub auto-updates.
+Version: 1.0.2
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: steelvilla
+GitHub Theme URI: shahriarnayem/steelvilla-theme
+GitHub Branch: main
+*/
+
 /* ===================================================================
    Steel Villa LTD. - Global Stylesheet
    Architecture derived from Elementor Global Kit #7
@@ -1508,4 +1525,119 @@ textarea.form-control {
   .hero-slider-section {
     min-height: 500px;
   }
+}
+
+
+/* ===================================================================
+   WordPress Core Classes & Standard Theme Compliance
+   =================================================================== */
+.alignnone { margin: 5px 20px 20px 0; }
+.aligncenter, div.aligncenter { display: block; margin: 15px auto; text-align: center; }
+.alignright { float: right; margin: 5px 0 20px 20px; }
+.alignleft { float: left; margin: 5px 20px 20px 0; }
+a img.alignright { float: right; margin: 5px 0 20px 20px; }
+a img.alignnone { margin: 5px 20px 20px 0; }
+a img.alignleft { float: left; margin: 5px 20px 20px 0; }
+a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption { background: #fff; border: 1px solid #f0f0f0; max-width: 96%; padding: 5px 3px 10px; text-align: center; }
+.wp-caption.alignnone { margin: 5px 20px 20px 0; }
+.wp-caption.alignleft { margin: 5px 20px 20px 0; }
+.wp-caption.alignright { margin: 5px 0 20px 20px; }
+.wp-caption img { border: 0 none; height: auto; margin: 0; max-width: 98.5%; padding: 0; width: auto; }
+.wp-caption p.wp-caption-text { font-size: 13px; line-height: 17px; margin: 0; padding: 5px 4px 5px; color: var(--color-text); }
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+.gallery-caption { font-size: 12px; color: var(--color-text); }
+.bypostauthor { font-weight: bold; }
+.sticky { border-left: 4px solid var(--color-accent); }
+.post-content { line-height: 1.8; color: var(--color-text); font-size: 1.05rem; }
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 { color: var(--color-primary); margin: 2rem 0 1rem; }
+.post-content p { margin-bottom: 1.25rem; }
+.post-content ul, .post-content ol { margin: 1rem 0 1.5rem 1.75rem; }
+.post-content li { margin-bottom: 0.5rem; }
+.post-content blockquote { border-left: 4px solid var(--color-accent); padding: 1rem 1.5rem; background: var(--color-soft-blue); margin: 1.5rem 0; font-style: italic; }
+.post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.post-content table th, .post-content table td { border: 1px solid #e0e0e0; padding: 0.75rem 1rem; text-align: left; }
+.post-content table th { background: #f8f9fa; font-weight: 600; color: var(--color-primary); }
+
+/* Navigation Fallbacks & Active WP Classes */
+.nav-menu .current-menu-item > a,
+.nav-menu .current_page_item > a {
+  color: var(--color-accent) !important;
+}
+.nav-menu .current-menu-item > a::after,
+.nav-menu .current_page_item > a::after {
+  width: 100% !important;
+}
+.menu-item-has-children {
+  position: relative;
+}
+.menu-item-has-children > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.menu-item-has-children .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  min-width: 220px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition-normal);
+  z-index: 1000;
+}
+.menu-item-has-children:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.menu-item-has-children .sub-menu li a {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+.menu-item-has-children .sub-menu li a:hover {
+  background-color: var(--color-soft-blue);
+  color: var(--color-accent);
+  padding-left: 1.5rem;
 }

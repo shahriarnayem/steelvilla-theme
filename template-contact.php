@@ -2,16 +2,10 @@
 /**
  * Template Name: Contact Us
  * 
- * Steel Villa Contact Us Template
+ * Steel Villa Contact Us Template - 100% Pixel-Perfect Match
  */
 
 get_header();
-
-$page_meta = get_post_meta(get_the_ID(), '_steelvilla_page_meta', true);
-if (!is_array($page_meta)) $page_meta = array();
-
-$contact_title = $page_meta['contact_title'] ?? 'Let’s Build Something Extraordinary Together';
-$contact_desc  = $page_meta['contact_desc'] ?? 'Have an industrial or commercial project in mind? Our certified structural engineering team is available for comprehensive technical consultations and transparent cost estimates.';
 
 $phone1 = steelvilla_get_contact('phone_1');
 $phone2 = steelvilla_get_contact('phone_2');
@@ -20,123 +14,130 @@ $addr   = steelvilla_get_contact('address');
 $maps   = steelvilla_get_contact('maps_embed');
 ?>
 
-  <!-- Page Banner -->
-  <section class="page-banner">
-    <div class="container">
-      <h1><?php the_title(); ?></h1>
-      <p><?php echo esc_html($contact_desc); ?></p>
-      <div class="breadcrumb">
-        <a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'steelvilla'); ?></a> / <span><?php the_title(); ?></span>
-      </div>
+  <!-- Page Header Hero -->
+  <section style="background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(40,22,14,0.95) 100%), url('https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop') center/cover; color: #FFF; padding: 5rem 0;">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <span class="badge badge-accent" style="margin-bottom: 1rem;"><?php _e('Direct Engineering Desk', 'steelvilla'); ?></span>
+      <h1 style="color: #FFF; margin-bottom: 1rem;"><?php _e('Let’s Build Something Extraordinary Together', 'steelvilla'); ?></h1>
+      <p style="font-size: 1.15rem; color: #E2E4EB;"><?php _e('Need a pre-engineered steel building or industrial infrastructure? Contact our engineering team today to discuss your site dimensions and specifications.', 'steelvilla'); ?></p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section">
+  <!-- Contact Form & Info Grid -->
+  <section class="section-padding">
     <div class="container">
       <div class="contact-grid">
-        <!-- Contact Information Cards -->
-        <div>
-          <span class="badge badge-accent" style="margin-bottom: 0.75rem;"><?php _e('Get in Touch', 'steelvilla'); ?></span>
-          <h2><?php echo esc_html($contact_title); ?></h2>
-          <p style="margin-bottom: 2rem;"><?php echo esc_html($contact_desc); ?></p>
+        
+        <!-- Left: Contact Details Cards -->
+        <div class="contact-info-panel">
+          <div>
+            <span class="section-subtitle"><?php _e('Reach Out Directly', 'steelvilla'); ?></span>
+            <h2 class="section-title"><?php _e('Get in Touch', 'steelvilla'); ?></h2>
+            <p><?php _e('Our head office in Mohammadpur, Dhaka is staffed with certified structural engineers ready to review your architectural drafts, land plots, and fabrication tenders.', 'steelvilla'); ?></p>
+          </div>
 
-          <div class="contact-info-card">
-            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <h4 style="margin-bottom: 0.25rem;"><?php _e('Direct Phone Lines', 'steelvilla'); ?></h4>
-              <p style="margin: 0;">
-                <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone1)); ?>" style="color: var(--color-primary); font-weight: 500;"><?php echo esc_html($phone1); ?></a>
+          <!-- Office Address Card -->
+          <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-card-text">
+              <h4><?php _e('Corporate Headquarters', 'steelvilla'); ?></h4>
+              <p><?php echo esc_html($addr); ?></p>
+            </div>
+          </div>
+
+          <!-- Phone Numbers Card -->
+          <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-solid fa-phone-volume"></i></div>
+            <div class="contact-card-text">
+              <h4><?php _e('Direct Telephone Lines', 'steelvilla'); ?></h4>
+              <p>
+                Primary: <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone1)); ?>" style="color: var(--color-accent); font-weight: 600;"><?php echo esc_html($phone1); ?></a><br>
                 <?php if ($phone2) : ?>
-                  <br><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone2)); ?>" style="color: var(--color-primary); font-weight: 500;"><?php echo esc_html($phone2); ?></a>
+                  Secondary: <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone2)); ?>" style="color: var(--color-accent); font-weight: 600;"><?php echo esc_html($phone2); ?></a>
                 <?php endif; ?>
               </p>
             </div>
           </div>
 
-          <div class="contact-info-card">
-            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <h4 style="margin-bottom: 0.25rem;"><?php _e('Corporate Email', 'steelvilla'); ?></h4>
-              <p style="margin: 0;">
-                <a href="mailto:<?php echo esc_attr($email); ?>" style="color: var(--color-primary); font-weight: 500;"><?php echo esc_html($email); ?></a>
+          <!-- Email Address Card -->
+          <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div class="contact-card-text">
+              <h4><?php _e('Official Email', 'steelvilla'); ?></h4>
+              <p>
+                Inquiries & Tenders: <a href="mailto:<?php echo esc_attr($email); ?>" style="color: var(--color-accent); font-weight: 600;"><?php echo esc_html($email); ?></a>
               </p>
             </div>
           </div>
 
-          <div class="contact-info-card">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <h4 style="margin-bottom: 0.25rem;"><?php _e('Corporate Office', 'steelvilla'); ?></h4>
-              <p style="margin: 0; color: var(--color-primary); font-weight: 500;">
-                <?php echo esc_html($addr); ?>
-              </p>
-            </div>
-          </div>
-
-          <div class="contact-info-card">
-            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <h4 style="margin-bottom: 0.25rem;"><?php _e('Working Hours', 'steelvilla'); ?></h4>
-              <p style="margin: 0; color: var(--color-text);">
-                <?php _e('Saturday – Thursday: 9:00 AM – 6:00 PM', 'steelvilla'); ?><br>
-                <?php _e('Friday: Closed (Emergency Site Support Active)', 'steelvilla'); ?>
-              </p>
+          <!-- Working Hours Card -->
+          <div class="contact-card-box">
+            <div class="contact-card-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="contact-card-text">
+              <h4><?php _e('Business Hours', 'steelvilla'); ?></h4>
+              <p><?php _e('Sunday – Thursday: 9:00 AM – 6:00 PM', 'steelvilla'); ?><br><?php _e('Friday & Saturday: By Appointment', 'steelvilla'); ?></p>
             </div>
           </div>
         </div>
 
-        <!-- Interactive Inquiry Form -->
-        <div style="background-color: var(--color-soft-blue); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid #e0e4f0;">
-          <h3 style="margin-bottom: 0.5rem; color: var(--color-primary);"><?php _e('Send a Project Inquiry', 'steelvilla'); ?></h3>
-          <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--color-text);"><?php _e('Fill out the form below. An engineering representative will contact you within 24 business hours.', 'steelvilla'); ?></p>
+        <!-- Right: Interactive Lead Capture Form (Elementor Pro form) -->
+        <div class="contact-form-panel">
+          <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;"><?php _e('Send Your Project Inquiry', 'steelvilla'); ?></h3>
+          <p style="font-size: 0.95rem; color: var(--color-text); margin-bottom: 2rem;"><?php _e('Fill out this form and our technical estimators will contact you within 24 hours.', 'steelvilla'); ?></p>
 
-          <form id="contact-form" class="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
-            <input type="hidden" name="action" value="steelvilla_contact_submit">
-            <?php wp_nonce_field('steelvilla_contact_action', 'contact_nonce'); ?>
-
+          <form id="steelvilla-contact-form">
+            <!-- Full Name -->
             <div class="form-group">
-              <label for="contact-name"><?php _e('Your Full Name *', 'steelvilla'); ?></label>
-              <input type="text" id="contact-name" name="name" class="form-control" placeholder="Md. Arif Hossain" required>
+              <label for="full_name"><?php _e('Full Name *', 'steelvilla'); ?></label>
+              <input type="text" id="full_name" name="form_fields[name]" class="form-control" placeholder="e.g. Engr. Tanvir Ahmed" required>
             </div>
 
+            <!-- Phone Number -->
             <div class="form-group">
-              <label for="contact-phone"><?php _e('Phone Number *', 'steelvilla'); ?></label>
-              <input type="tel" id="contact-phone" name="phone" class="form-control" placeholder="+880 1700 000000" required>
+              <label for="phone_number"><?php _e('Phone Number *', 'steelvilla'); ?></label>
+              <input type="tel" id="phone_number" name="form_fields[field_5bc510a]" class="form-control" placeholder="e.g. +88017XXXXXXXX" required>
             </div>
 
+            <!-- Email Address -->
             <div class="form-group">
-              <label for="contact-email"><?php _e('Email Address', 'steelvilla'); ?></label>
-              <input type="email" id="contact-email" name="email" class="form-control" placeholder="name@company.com">
+              <label for="email_address"><?php _e('Corporate / Personal Email *', 'steelvilla'); ?></label>
+              <input type="email" id="email_address" name="form_fields[email]" class="form-control" placeholder="e.g. tanvir@company.com" required>
             </div>
 
+            <!-- Message / Scope -->
             <div class="form-group">
-              <label for="contact-message"><?php _e('Project Details / Scope *', 'steelvilla'); ?></label>
-              <textarea id="contact-message" name="message" class="form-control" rows="4" placeholder="Type of building (Warehouse, Factory, Shed), estimated dimensions, location..." required></textarea>
+              <label for="project_message"><?php _e('Project Details / Estimated Area (SQFT) *', 'steelvilla'); ?></label>
+              <textarea id="project_message" name="form_fields[message]" class="form-control" placeholder="Describe your structural requirements, site location, desired clear-span, and timeline..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.05rem;">
               <i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i> <?php _e('Send Project Inquiry', 'steelvilla'); ?>
             </button>
-            <div id="form-feedback" style="display: none; margin-top: 1rem; padding: 0.75rem; border-radius: var(--radius-sm); text-align: center;"></div>
+            <div id="form-feedback" style="display: none;"></div>
           </form>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Google Maps Interactive Embed Section -->
-  <section style="line-height: 0;">
-    <iframe 
-      src="<?php echo esc_url($maps); ?>" 
-      width="100%" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Steel Villa LTD. Office Location Map">
-    </iframe>
+  <!-- Responsive Embedded Google Map (Mohammadpur, Dhaka) -->
+  <section class="section-padding-sm bg-gray">
+    <div class="container">
+      <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); height: 420px; width: 100%;">
+        <iframe 
+          title="Steel Villa LTD Location"
+          src="<?php echo esc_url($maps); ?>" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
   </section>
 
 <?php get_footer(); ?>
