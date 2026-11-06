@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('STEELVILLA_VERSION', '1.0.2');
+define('STEELVILLA_VERSION', '1.0.3');
 define('STEELVILLA_DIR', get_template_directory());
 define('STEELVILLA_URI', get_template_directory_uri());
 
