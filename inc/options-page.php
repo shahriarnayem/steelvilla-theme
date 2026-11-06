@@ -289,9 +289,19 @@ function steelvilla_render_theme_settings_page() {
             </table>
 
             <h2><?php _e('GitHub Theme Updates', 'steelvilla'); ?></h2>
-            <p><?php _e('This theme connects directly to GitHub public repository <code>https://github.com/shahriarnayem/steelvilla-theme</code> for instant updates.', 'steelvilla'); ?></p>
+            <p><?php _e('This theme connects directly to GitHub repository <code>https://github.com/shahriarnayem/steelvilla-theme</code> for instant updates.', 'steelvilla'); ?></p>
             <div style="background: #e7f5ea; border-left: 4px solid #46b450; padding: 12px 16px; margin: 10px 0;">
-                <strong><?php _e('GitHub Updater Active:', 'steelvilla'); ?></strong> <?php _e('When you push a new release tag to GitHub, WordPress will show an "Update Available" notification and support automatic background updates.', 'steelvilla'); ?>
+                <p style="margin: 0 0 6px;"><strong><?php _e('Installed Theme Version:', 'steelvilla'); ?></strong> <code><?php echo esc_html(defined('STEELVILLA_VERSION') ? STEELVILLA_VERSION : '1.0.1'); ?></code></p>
+                <p style="margin: 0 0 6px;"><strong><?php _e('GitHub Updater Active:', 'steelvilla'); ?></strong> <?php _e('When you push a new release tag to GitHub, WordPress will show an "Update Available" notification and support automatic background updates.', 'steelvilla'); ?></p>
+                <p style="margin: 8px 0 0;">
+                    <a href="<?php echo esc_url(admin_url('admin.php?page=steelvilla-settings&steelvilla_check_update=1')); ?>" class="button button-secondary">
+                        <span class="dashicons dashicons-update" style="vertical-align: middle; margin-right: 4px;"></span>
+                        <?php _e('Check for Updates Now', 'steelvilla'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(admin_url('update-core.php')); ?>" class="button button-link" style="margin-left: 10px;">
+                        <?php _e('Go to WordPress Updates Page', 'steelvilla'); ?> &rarr;
+                    </a>
+                </p>
             </div>
 
             <?php submit_button(__('Save Theme Settings', 'steelvilla')); ?>

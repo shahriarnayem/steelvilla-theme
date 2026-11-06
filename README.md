@@ -2,7 +2,7 @@
 
 Custom high-performance WordPress Theme engineered for **Steel Villa LTD.** — Premier Pre-Engineered Steel Building (PEB) & Industrial Civil Construction Company in Bangladesh.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/shahriarnayem/steelvilla-theme)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/shahriarnayem/steelvilla-theme)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-21759b.svg)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg)](https://php.net)
 

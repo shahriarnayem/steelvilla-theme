@@ -47,6 +47,12 @@ class SteelVilla_Theme_Updater {
      */
     private function get_latest_release() {
         $transient_key = 'steelvilla_gh_latest_release';
+
+        // Invalidate cache on manual check in Dashboard > Updates or admin
+        if (!empty($_GET['force-check']) || !empty($_GET['steelvilla_check_update'])) {
+            delete_transient($transient_key);
+        }
+
         $cached = get_transient($transient_key);
 
         if ($cached !== false) {
